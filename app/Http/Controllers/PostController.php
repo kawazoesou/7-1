@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+dev_basis04
 use App\Models\Post;
 use App\Http\Requests\PostRequest; // useする
+use Illuminate\Http\Request;
+use App\Models\Post;
+master
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
+dev_basis04
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
@@ -29,3 +34,7 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 }
+        return $post->get();
+    }
+}
+master
