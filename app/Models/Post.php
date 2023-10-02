@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-dev_basis04
     
     protected $fillable=[
         'title',
@@ -21,4 +20,3 @@ dev_basis04
     }
 }
 ?>
- master
