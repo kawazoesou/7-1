@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-dev_basis04
 use App\Models\Post;
 use App\Http\Requests\PostRequest; // useする
 use Illuminate\Http\Request;
-use App\Models\Post;
-master
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
-dev_basis04
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
@@ -33,8 +29,17 @@ dev_basis04
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
-}
-        return $post->get();
+    
+    public function edit(Post $post)
+    {
+        return view('posts.edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request,Post $post)
+    {
+        $input_post =$request['post'];
+        $post->fill($input_post)->save();
+        
+        return redirect('/posts/' .$post->id);
     }
 }
-master
